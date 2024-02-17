@@ -132,8 +132,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 507409767}
+  - component: {fileID: 507409768}
   m_Layer: 0
-  m_Name: DungeonGenerator
+  m_Name: DungeonCreator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,6 +155,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &507409768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507409766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3680d430a9cbe0f4f99f962a50bade48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dungeonWidth: 100
+  dungeonLength: 100
+  roomWidthMin: 25
+  roomLengthMin: 25
+  maxIterations: 10
+  corridorWidth: 5
+  material: {fileID: 2100000, guid: 88056ad3707bb6346ad6e69bf350d54d, type: 2}
+  roomBottomCornerModifier: 0.1
+  roomTopCornerMidifier: 0.9
+  roomOffset: 1
+  wallVertical: {fileID: 919132149155446097, guid: 287bbb81a3e91bf46807a8f5f53314bf, type: 3}
+  wallHorizontal: {fileID: 919132149155446097, guid: 287bbb81a3e91bf46807a8f5f53314bf, type: 3}
 --- !u!1 &523590133
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,8 +214,8 @@ Camera:
   m_GameObject: {fileID: 523590133}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
