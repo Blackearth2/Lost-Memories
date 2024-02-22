@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -65,7 +65,19 @@ public class DungeonCreator : MonoBehaviour
 
     private void CreateWall(GameObject wallParent, Vector3Int wallPosition, GameObject wallPrefab)
     {
-        Instantiate(wallPrefab, wallPosition, Quaternion.identity, wallParent.transform);
+        Quaternion quaternion = transform.rotation;
+        if (wallPrefab.name == "wall vertical"){
+            float angle = 90f;
+            Quaternion rotationQuaternion = Quaternion.AngleAxis(angle, Vector3.up);
+            Quaternion newRotation = rotationQuaternion;
+            transform.rotation = newRotation;
+        Instantiate(wallPrefab, wallPosition, newRotation);
+        }
+        else
+        {
+             Instantiate(wallPrefab, wallPosition, quaternion);
+
+        }
     }
 
     private void CreateMesh(Vector2 bottomLeftCorner, Vector2 topRightCorner)
@@ -110,6 +122,8 @@ public class DungeonCreator : MonoBehaviour
         dungeonFloor.GetComponent<MeshFilter>().mesh = mesh;
         dungeonFloor.GetComponent<MeshRenderer>().material = material;
         dungeonFloor.transform.parent = transform;
+        //rotate le dungeon floor
+        dungeonFloor.transform.Rotate(0, -90, 0);
 
         for (int row = (int)bottomLeftV.x; row < (int)bottomRightV.x; row++)
         {
