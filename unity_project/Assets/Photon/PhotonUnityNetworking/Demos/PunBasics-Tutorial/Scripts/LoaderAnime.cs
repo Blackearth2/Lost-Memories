@@ -3,14 +3,16 @@
 //   Part of: Photon Unity Networking Demos
 // </copyright>
 // <summary>
-//  Used in PUN Basics Tutorial to connect, and join/create room automatically
+//  Used in DemoAnimator to connect, and join/create room automatically
 // </summary>
 // <author>developer@exitgames.com</author>
 // --------------------------------------------------------------------------------------------------------------------
 
-using UnityEngine;
 
-namespace Photon.Pun.Demo.PunBasics
+using UnityEngine;
+using System.Collections;
+
+namespace ExitGames.Demos.DemoAnimator
 {
 	/// <summary>
 	/// Simple behaviour to animate particles around to create a typical "Ajax Loader". this is actually very important to visual inform the user that something is happening
@@ -85,10 +87,7 @@ namespace Photon.Pun.Demo.PunBasics
 		{
 			_isAnimating = true;
 			_offset = new Vector3(radius,0f,0f);
-            if (particles != null)
-            {
-                particles.SetActive(true);
-            }
+			particles.SetActive(true);
 		}
 
 		/// <summary>
@@ -96,10 +95,7 @@ namespace Photon.Pun.Demo.PunBasics
 		/// </summary>
 		public void StopLoaderAnimation()
 		{
-            if (this.particles != null)
-            {
-                particles.SetActive(false);
-            }
+			particles.SetActive(false);
 		}
 
 		#endregion
